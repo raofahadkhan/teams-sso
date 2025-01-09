@@ -1,0 +1,41 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.13/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.13",
+  "id": "85fd7945-6f55-4c52-91e0-860034044da1",
+  "version": "1.0.0",
+  "packageName": "com.yourdomain.yourapp",
+  "developer": {
+    "name": "Your Name or Company",
+    "websiteUrl": "https://eb23-103-74-22-42.ngrok-free.app",
+    "privacyUrl": "https://eb23-103-74-22-42.ngrok-free.app/privacy",
+    "termsOfUseUrl": "https://eb23-103-74-22-42.ngrok-free.app/terms"
+  },
+  "name": {
+    "short": "Your App Short Name",
+    "full": "Your App Full Name"
+  },
+  "description": {
+    "short": "A short description of your app.",
+    "full": "A detailed description of your app's functionality and purpose."
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "teams-tab-index0",
+      "name": "Custom Teams Tab",
+      "contentUrl": "https://eb23-103-74-22-42.ngrok-free.app/teams-tab",
+      "websiteUrl": "https://eb23-103-74-22-42.ngrok-free.app",
+      "scopes": ["personal"]
+    }
+  ],
+  "permissions": ["identity"],
+  "validDomains": ["eb23-103-74-22-42.ngrok-free.app"],
+  "webApplicationInfo": {
+    "id": "85fd7945-6f55-4c52-91e0-860034044da1",
+    "resource": "api://4ea3481a-86f1-4730-8d75-0c5e2f621d9b"
+  }
+}

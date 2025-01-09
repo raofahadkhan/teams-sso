@@ -1,0 +1,51 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.16",
+    "version": "1.0.0",
+    "id": "08e8620a-5979-4a37-b279-b2a92a75f515",
+    "packageName": "com.microsoft.teams.extension",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://benosphere.com/",
+        "privacyUrl": "https://benosphere.com/privacy-policy",
+        "termsOfUseUrl": "https://benosphere.com/terms-conditions"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Benosphere",
+        "full": "Benosphere"
+    },
+    "description": {
+        "short": "Benosphere",
+        "full": "Your Benefits Management Assistant"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [],
+    "staticTabs": [
+        {
+            "entityId": "index0",
+            "name": "Personal Tab",
+            "contentUrl": "https://app.qharmony.io/teamsauth",
+            "websiteUrl": "https://app.qharmony.io/teamsauth",
+            "scopes": [
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "app.qharmony.io",
+        "login.microsoftonline.com"
+    ],
+    "webApplicationInfo": {
+        "id": "08e8620a-5979-4a37-b279-b2a92a75f515",
+        "resource": "api://app.qharmony.io/08e8620a-5979-4a37-b279-b2a92a75f515"
+    }
+}
