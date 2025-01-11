@@ -52,8 +52,8 @@ const msalConfig: Configuration = {
   auth: {
     clientId: "4ea3481a-86f1-4730-8d75-0c5e2f621d9b", // Replace with your App ID
     authority:
-      "https://login.microsoftonline.com/5d83f397-271d-40b5-8f97-b400080e94a5", // Multi-tenant authority
-    redirectUri: "https://eb23-103-74-22-42.ngrok-free.app/auth-end", // Ensure this is registered in Azure AD
+      "https://login.microsoftonline.com/common", // Multi-tenant authority
+    redirectUri: "https://faa1-103-74-22-147.ngrok-free.app/auth-end", // Ensure this is registered in Azure AD
     navigateToLoginRequestUrl: false,
   },
   cache: {
