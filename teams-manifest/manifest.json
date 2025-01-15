@@ -6,9 +6,9 @@
   "packageName": "com.example.freshteamsapp",
   "developer": {
     "name": "Your Name",
-    "websiteUrl": "https://faa1-103-74-22-147.ngrok-free.app",
-    "privacyUrl": "https://faa1-103-74-22-147.ngrok-free.app/privacy",
-    "termsOfUseUrl": "https://faa1-103-74-22-147.ngrok-free.app/terms"
+    "websiteUrl": "https://teams-sso.vercel.app",
+    "privacyUrl": "https://teams-sso.vercel.app/privacy",
+    "termsOfUseUrl": "https://teams-sso.vercel.app/terms"
   },
   "description": {
     "short": "A simple Teams tab app.",
@@ -27,8 +27,8 @@
     {
       "entityId": "fresh-teams-tab",
       "name": "FreshTab",
-      "contentUrl": "https://faa1-103-74-22-147.ngrok-free.app/teams-tab",
-      "websiteUrl": "https://faa1-103-74-22-147.ngrok-free.app",
+      "contentUrl": "https://teams-sso.vercel.app/teams-tab",
+      "websiteUrl": "https://teams-sso.vercel.app",
       "scopes": ["personal"]
     }
   ],

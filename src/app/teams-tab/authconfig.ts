@@ -53,7 +53,7 @@ const msalConfig: Configuration = {
     clientId: "5572abc7-7a99-448a-9f62-134da3f27e9e", // Replace with your App ID
     authority:
       "https://login.microsoftonline.com/common", // Multi-tenant authority
-    redirectUri: "https://faa1-103-74-22-147.ngrok-free.app/auth-end", // Ensure this is registered in Azure AD
+    redirectUri: "https://teams-sso.vercel.app/auth-end", // Ensure this is registered in Azure AD
     navigateToLoginRequestUrl: false,
   },
   cache: {
