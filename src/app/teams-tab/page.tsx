@@ -159,7 +159,7 @@ const TeamsAuth = () => {
         const request = {
           scopes: [
             "User.Read",
-            "api://4ea3481a-86f1-4730-8d75-0c5e2f621d9b/access_as_user",
+            "api://5572abc7-7a99-448a-9f62-134da3f27e9e/access_as_user",
           ],
         };
 
@@ -186,7 +186,7 @@ const TeamsAuth = () => {
         if (error.name === "InteractionRequiredAuthError") {
           // Fallback to interactive authentication
           microsoftTeams.authentication.authenticate({
-            url: `https://login.microsoftonline.com/5d83f397-271d-40b5-8f97-b400080e94a5/oauth2/v2.0/authorize?client_id=4ea3481a-86f1-4730-8d75-0c5e2f621d9b&response_type=code&redirect_uri=https://faa1-103-74-22-147.ngrok-free.app/auth-end&scope=openid email profile offline_access User.Read`,
+            url: `https://login.microsoftonline.com/ca41443d-acdd-4223-9c81-dcaeb58b3406/oauth2/v2.0/authorize?client_id=5572abc7-7a99-448a-9f62-134da3f27e9e&response_type=code&redirect_uri=https://faa1-103-74-22-147.ngrok-free.app/auth-end&scope=openid email profile offline_access User.Read`,
             width: 600,
             height: 535,
             successCallback: (result:any) => {

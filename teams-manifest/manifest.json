@@ -38,8 +38,7 @@
      "login.microsoftonline.com"
   ],
   "webApplicationInfo": {
-    "id": "4ea3481a-86f1-4730-8d75-0c5e2f621d9b",
-    "resource": "api://4ea3481a-86f1-4730-8d75-0c5e2f621d9b"
+    "id": "5572abc7-7a99-448a-9f62-134da3f27e9e",
+    "resource": "api://5572abc7-7a99-448a-9f62-134da3f27e9e"
   }
 }
-
