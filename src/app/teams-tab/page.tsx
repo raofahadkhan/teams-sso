@@ -186,7 +186,7 @@ const TeamsAuth = () => {
         if (error.name === "InteractionRequiredAuthError") {
           // Fallback to interactive authentication
           microsoftTeams.authentication.authenticate({
-            url: `https://login.microsoftonline.com/ca41443d-acdd-4223-9c81-dcaeb58b3406/oauth2/v2.0/authorize?client_id=5572abc7-7a99-448a-9f62-134da3f27e9e&response_type=code&redirect_uri=https://teams-sso.vercel.app/auth-end&scope=openid email profile offline_access User.Read`,
+            url: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=5572abc7-7a99-448a-9f62-134da3f27e9e&response_type=code&redirect_uri=https://teams-sso.vercel.app/auth-end&scope=openid email profile offline_access User.Read`,
             width: 600,
             height: 535,
             successCallback: (result:any) => {
