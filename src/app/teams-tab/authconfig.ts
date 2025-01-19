@@ -1,59 +1,49 @@
-// import {
-//     PublicClientApplication,
-//     Configuration,
-//     LogLevel,
-//   } from "@azure/msal-browser";
-
-//   const msalConfig: Configuration = {
-//     auth: {
-//       clientId: "4ea3481a-86f1-4730-8d75-0c5e2f621d9b", // Your Client ID
-//       authority:
-//         "https://login.microsoftonline.com/5d83f397-271d-40b5-8f97-b400080e94a5", // Your Tenant ID (Authority)
-//       redirectUri:
-//         "https://eb23-103-74-22-42.ngrok-free.app/auth-end", // Ensure this is registered in Azure AD
-//       navigateToLoginRequestUrl: false,
-//     },
-//     cache: {
-//       cacheLocation: "sessionStorage",
-//       storeAuthStateInCookie: false,
-//     },
-//     system: {
-//       allowRedirectInIframe: true, // Allow authentication flows inside an iframe (important for Teams)
-//       loggerOptions: {
-//         loggerCallback: (level, message) => {
-//           console.log(message); // Verbose logging for debugging
-//         },
-//         logLevel: LogLevel.Verbose,
-//       },
-//     },
-//   };
-
-//   const msalInstance = new PublicClientApplication(msalConfig);
-
-//   // Async function to initialize MSAL
-//   export const initializeMsal = async () => {
-//     try {
-//       await msalInstance.initialize();
-//       console.log("MSAL initialized successfully");
-//     } catch (error) {
-//       console.error("Error initializing MSAL", error);
-//     }
-//   };
-
-//   export default msalInstance;
-
 import {
   PublicClientApplication,
   Configuration,
   LogLevel,
 } from "@azure/msal-browser";
 
+let codeVerifier: string | null = null; // Store the codeVerifier globally for later use
+
+const generatePKCECodes = async () => {
+  const generateRandomString = (length: number): string => {
+    const charset =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~";
+    let randomString = "";
+    const randomValues = new Uint8Array(length);
+    window.crypto.getRandomValues(randomValues);
+    for (let i = 0; i < randomValues.length; i++) {
+      randomString += charset[randomValues[i] % charset.length];
+    }
+    return randomString;
+  };
+
+  const sha256 = async (plain: string): Promise<string> => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(plain);
+    const hash = await crypto.subtle.digest("SHA-256", data);
+
+    // Fix: Convert Uint8Array to a regular array before using String.fromCharCode
+    const hashArray = Array.from(new Uint8Array(hash));
+    return btoa(
+      String.fromCharCode(...hashArray) // Spread the array to convert to characters
+    )
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_")
+      .replace(/=+$/, "");
+  };
+
+  const codeVerifier = generateRandomString(128);
+  const codeChallenge = await sha256(codeVerifier);
+  return { codeVerifier, codeChallenge };
+};
+
 const msalConfig: Configuration = {
   auth: {
     clientId: "5572abc7-7a99-448a-9f62-134da3f27e9e", // Replace with your App ID
-    authority:
-      "https://login.microsoftonline.com/common", // Multi-tenant authority
-    redirectUri: "https://teams-sso.vercel.app/auth-end", // Ensure this is registered in Azure AD
+    authority: "https://login.microsoftonline.com/common", // Multi-tenant authority
+    redirectUri: "https://teams-sso.vercel.app/auth-end", // Ensure this matches Azure AD settings
     navigateToLoginRequestUrl: false,
   },
   cache: {
@@ -73,7 +63,6 @@ const msalConfig: Configuration = {
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
-// Initialize MSAL
 export const initializeMsal = async () => {
   try {
     await msalInstance.initialize();
@@ -83,4 +72,5 @@ export const initializeMsal = async () => {
   }
 };
 
-export default msalInstance;
+// Expose PKCE generation and the codeVerifier
+export { msalInstance, generatePKCECodes, codeVerifier };
