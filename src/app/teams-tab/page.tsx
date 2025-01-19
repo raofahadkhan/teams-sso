@@ -4,14 +4,6 @@ import { useEffect, useState } from "react";
 import * as microsoftTeams from "@microsoft/teams-js";
 import { msalInstance, initializeMsal, generatePKCECodes } from "./authconfig";
 
-interface AuthState {
-  isAuthenticated: boolean;
-  error: string | null;
-  loading: boolean;
-  user: Record<string, any> | null;
-  email: string | null;
-}
-
 const TeamsAuth: React.FC = () => {
   const [authState, setAuthState] = useState<any>({
     isAuthenticated: false,
